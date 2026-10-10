@@ -1,0 +1,32 @@
+name: Frontend Pipeline (Angular 18)
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-angular:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: finstream-frontend/package.json
+
+      - name: Install Dependencies
+        run: |
+          cd finstream-frontend
+          npm ci --prefer-offline || npm install
+
+      - name: Verify Angular Production Build
+        run: |
+          cd finstream-frontend
+          npx ng build --configuration production
