@@ -1,3 +1,5 @@
+[![Backend Pipeline](https://github.com/Med12334/finstream-platform/actions/workflows/backend-ci.yml/badge.svg)](https://github.com/Med12334/finstream-platform/actions/workflows/backend-ci.yml) [![Frontend Pipeline](https://github.com/Med12334/finstream-platform/actions/workflows/frontend-ci.yml/badge.svg)](https://github.com/Med12334/finstream-platform/actions/workflows/frontend-ci.yml)
+
 <div align="center">
 
 # ⚡ FinStream Core Banking & Settlement Platform
@@ -18,4 +20,3 @@ An enterprise-grade, event-driven settlement platform engineered with **Spring B
 ## 🏛 System Architecture
 
 The platform processes high-throughput transaction requests through a decoupled, multi-datasource microservice architecture:
-
