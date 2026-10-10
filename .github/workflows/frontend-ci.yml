@@ -19,13 +19,8 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install Dependencies
+      - name: Install and Build
         run: |
           cd finstream-frontend
-          npm install -g @angular/cli@18
-          npm install --legacy-peer-deps
-
-      - name: Build Angular Application
-        run: |
-          cd finstream-frontend
-          ng build --configuration production
+          npm ci || npm install --legacy-peer-deps
+          npx --yes @angular/cli@18 build --configuration production
