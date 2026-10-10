@@ -22,9 +22,10 @@ jobs:
       - name: Install Dependencies
         run: |
           cd finstream-frontend
+          npm install -g @angular/cli@18
           npm install --legacy-peer-deps
 
       - name: Build Angular Application
         run: |
           cd finstream-frontend
-          npm run build
+          ng build --configuration production
