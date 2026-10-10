@@ -24,4 +24,4 @@ jobs:
       - name: Build and Package Microservices
         run: |
           cd finstream-backend
-          mvn clean compile test-compile package -DskipTests --batch-mode
+          mvn clean install -DskipTests --batch-mode
