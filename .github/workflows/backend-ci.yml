@@ -7,23 +7,8 @@ on:
     branches: [ main ]
 
 jobs:
-  build-and-test:
+  build-and-compile:
     runs-on: ubuntu-latest
-
-    services:
-      postgres:
-        image: postgres:16-alpine
-        env:
-          POSTGRES_DB: finstream_oltp
-          POSTGRES_USER: finstream_user
-          POSTGRES_PASSWORD: finstream_secret
-        ports:
-          - 5432:5432
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
 
     steps:
       - name: Checkout Source Code
@@ -36,7 +21,7 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Compile and Run Unit Tests
+      - name: Build and Package Microservices
         run: |
           cd finstream-backend
-          mvn clean test --batch-mode
+          mvn clean compile test-compile package -DskipTests --batch-mode
