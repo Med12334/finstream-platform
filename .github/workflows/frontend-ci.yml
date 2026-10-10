@@ -22,5 +22,5 @@ jobs:
       - name: Install and Build
         run: |
           cd finstream-frontend
-          npm ci || npm install --legacy-peer-deps
-          npx --yes @angular/cli@18 build --configuration production
+          npm install --legacy-peer-deps
+          npx --yes @angular/cli@18 build
